@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using System;
 
 public class GameController : MonoBehaviour {
+
+    public GameObject mainTitle;
+    public GameObject startButton;
 
     public PoorSoulSpawner spawner;
     public PreacherController preacher;
@@ -33,11 +37,15 @@ public class GameController : MonoBehaviour {
         spawner.Pause();
 	}
 
-    void EndGame()
+    public void EndGame()
     {
         Debug.Log("End Game");
         state = STATE_FINISHED;
         spawner.Pause();
+
+        mainTitle.SetActive(true);
+        startButton.SetActive(true);
+
     }
 
 	// Update is called once per frame
@@ -60,7 +68,7 @@ public class GameController : MonoBehaviour {
         }
 	}
 
-    private void StartPlaying()
+    public void StartPlaying()
     {
         Debug.Log("Start Playing");
         savedSouls = 0;
@@ -68,6 +76,9 @@ public class GameController : MonoBehaviour {
         playTime = 0;
         spawner.Resume();
         state = STATE_PLAYING;
+
+        mainTitle.SetActive(false);
+        startButton.SetActive(false);
     }
 
     void OnGUI()
@@ -75,9 +86,6 @@ public class GameController : MonoBehaviour {
         switch (state)
         {
             case STATE_NOT_STARTED: // display start button
-                if (GUI.Button(new Rect(Screen.width/2 - 150, Screen.height/2 - 100, 300, 200), "START")) {
-                    StartPlaying();
-                }
                 break;
             case STATE_PLAYING: // display time
                 GUI.TextField(new Rect(10, 10, 150, 20), "Sent to heaven: " + savedSouls);
@@ -85,9 +93,6 @@ public class GameController : MonoBehaviour {
                 GUI.TextField(new Rect(Screen.width - 200, 10, 180, 30), "Seconds left: " + (int)(totalTime - playTime));
                 break;
             case STATE_FINISHED: // display results
-                if (GUI.Button(new Rect(Screen.width/2 - 150, Screen.height/2 - 100, 300, 200), "START")) {
-                    StartPlaying();
-                }
                 GUI.TextField(new Rect(10, 10, 150, 20), "Sent to heaven: " + savedSouls);
                 GUI.TextField(new Rect(10, 40, 150, 20), "Sent to hell: " + killedSouls);
                 break;
