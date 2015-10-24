@@ -15,10 +15,21 @@ public class PreacherController : MonoBehaviour {
     public Collider actionArea;
     public Animator handsAnimator;
 
+    public float conversionPower = 1f;
+
     public string reprimendAnimation = "no-no";
-    public string exorciseAnimation = "no-no";
-    public string preachAnimation = "no-no";
-    public string holyBathAnimation = "no-no";
+    public string exorciseAnimation = "";
+    public string preachAnimation = "";
+    public string holyBathAnimation = "";
+
+    public float convertionRadius = 5;
+
+    public float savedSoulPowerGain = 0.1f;
+    public float lostSoulPowerGain = -0.5f;
+    public float maxConversionPower = 1f;
+    public float minConversionPower = 0.25f;
+    public float powerRecovery = 0.1f;
+    public float powerHarmed = -0.1f;
 
     private int killedSouls = 0;
     private int savedSouls = 0;
@@ -28,7 +39,7 @@ public class PreacherController : MonoBehaviour {
 	
 	}
 
-    private PoorSoulController availableSoul; 
+    private PoorSoulController availableSoul;
 
     void OnTriggerEnter(Collider collider)
     {
@@ -50,27 +61,48 @@ public class PreacherController : MonoBehaviour {
         availableSoul = null;
     }
 
+    private PoorSoulController GetReachableSoul()
+    {
+        return null;
+    }
+
     private void Kill()
     {
+        if (!IsPoorSoulReachable())
+        {
+            return;
+        }
+
         Debug.Log("Kill");
         if (availableSoul.Absolved)
         {
             savedSouls++;
+            conversionPower = Mathf.Clamp(conversionPower + savedSoulPowerGain, minConversionPower, maxConversionPower);
         }
         else
         {
             killedSouls++;
+            conversionPower = Mathf.Clamp(conversionPower + lostSoulPowerGain, minConversionPower, maxConversionPower);
         }
         availableSoul.Die();
     }
 
     private void Confess()
     {
+        if (!IsPoorSoulReachable())
+        {
+            return;
+        }
+
         availableSoul.Confess();
     }
 
     private void Absolve()
     {
+        if (!IsPoorSoulReachable())
+        {
+            return;
+        }
         availableSoul.Absolve();
     }
 
@@ -81,15 +113,19 @@ public class PreacherController : MonoBehaviour {
 
     private void Convert(ConvertionActions action)
     {
-        availableSoul.Convert(action);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, convertionRadius);
+        foreach (Collider collider in colliders)
+        {
+            PoorSoulController psc = collider.gameObject.GetComponentInChildren<PoorSoulController>();
+            if (psc != null)
+            {
+                psc.Convert(action);
+            }
+        }
     }
 
 	// Update is called once per frame
 	void Update () {
-        if (!IsPoorSoulReachable())
-        {   // no soul available
-            return;
-        }
         if (Input.GetKeyDown(killKey))
         {
             Kill();
@@ -122,5 +158,20 @@ public class PreacherController : MonoBehaviour {
         {
             Absolve();
         }
+
+        conversionPower = Mathf.Clamp(conversionPower + powerRecovery * Time.deltaTime, 0.25f, 1f);
+    }
+
+    public void Harm()
+    {
+        Debug.Log("Harm!");
+        conversionPower = Mathf.Clamp(conversionPower + powerHarmed * Time.deltaTime, 0.25f, 1f);
+    }
+
+    void OnGUI()
+    {
+        GUI.TextField(new Rect(10, 10, 150, 20), "Sent to heaven: " + savedSouls);
+        GUI.TextField(new Rect(10, 40, 150, 20), "Sent to hell: " + killedSouls);
+        GUI.TextField(new Rect(10, 70, 150, 20), "Conversion Power: " + conversionPower);
     }
 }

@@ -12,17 +12,26 @@ public class PoorSoulController : MonoBehaviour {
     private Vector3 ascensionSpeed = new Vector3();
 
     public float beliefForConversion = 10;
-    public float averagedReaction = 0;
-    public float beliefLostPerSecond = 0.1f;
+    public float beliefLostPerSecond = 0.3f;
 
     public float preachReaction = 1;
     public float reprimendReaction = -1;
     public float exorciseReaction = 0.5f;
     public float holyBathReaction = -0.5f;
 
+    public float followSpeed = 2;
+    public float chaseSpeed = 5;
+    public float minFollowDistance = 5;
+    public float minChaseDistance = 2;
+    public float maxChaseDistance = 35;
+    public float harmDistance = 3;
+
     private bool confessed;
     private bool absolved;
     private bool dead;
+
+    public PreacherController player;
+    public PoorSoulSpawner spawner;
 
     private Vector3 absolveScale = new Vector3(1.25f, 1.25f, 1.25f);
 
@@ -68,6 +77,7 @@ public class PoorSoulController : MonoBehaviour {
         rb.isKinematic = true;
         rb.useGravity = false;
         dead = true;
+        spawner.OneLess();
         // slowly go into the ground and then dissappear
         // start a ghost-soul floating towards heaven
     }
@@ -90,7 +100,7 @@ public class PoorSoulController : MonoBehaviour {
         float reaction = 0;
         if (reactions.TryGetValue(action, out reaction))
         {
-            belief += reaction;
+            belief += reaction * player.conversionPower;
         }
     }
 
@@ -116,6 +126,33 @@ public class PoorSoulController : MonoBehaviour {
         halo.transform.localScale.Scale(absolveScale);
     }
 
+
+    void LookAtPlayer()
+    {
+        Debug.Log("Look At Player");
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.LookRotation(player.transform.position - transform.position), 0.1f);
+    }
+    void FollowPlayer()
+    {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance > minFollowDistance)
+        {
+            transform.position += (player.transform.position - transform.position).normalized * followSpeed * Time.deltaTime;
+        }
+    }
+
+    void ChasePlayer()
+    {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance < maxChaseDistance && distance > minChaseDistance)
+        {
+            transform.position += (player.transform.position - transform.position).normalized * chaseSpeed * Time.deltaTime;
+        }
+        if (distance < harmDistance)
+        {
+            player.Harm();
+        }
+    }
 	// Update is called once per frame
 	void Update () {
         if (dead)
@@ -131,26 +168,26 @@ public class PoorSoulController : MonoBehaviour {
             ascensionSpeed.y = Mathf.Clamp(ascensionSpeed.y + ascensionAccel * Time.deltaTime, 0, maxAscensionSpeed);
             transform.localPosition += ascensionSpeed * direction * Time.deltaTime;
         }
-        if (absolved)
+        LookAtPlayer();
+        if (absolved)            // DO nothing, just await for death
         {
             return;
-            // DO nothing, just await for death
         }
-        if (confessed)
+        if (confessed) // Follow player waiting for absolution
         {
-            // Follow player waiting for absolution
+            FollowPlayer();
             return;
         }
         belief = Mathf.Clamp(belief, 0, belief - beliefLostPerSecond * Time.deltaTime);
         if (IsConverted)
         {
-            // 1. if player is around, follow him peacefully
-            // 2. if not, stay in place enjoying your inner peace
+            // if player is around, follow him peacefully. If not, stay in place enjoying your inner peace
+            FollowPlayer();
         }
         else
         {
-            // 1. if player is around, head for him
-            // 2. if it's not around, mode randomly
+            // Chase the player
+            ChasePlayer();
         }
         float beliefRatio = Mathf.Clamp(belief, 0, beliefForConversion) / beliefForConversion;
         halo.GetComponentInChildren<MeshRenderer>().material.color = Color.Lerp(Color.red, Color.yellow, beliefRatio);

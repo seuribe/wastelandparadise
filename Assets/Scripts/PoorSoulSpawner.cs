@@ -4,12 +4,14 @@ using System.Collections.Generic;
 
 public class PoorSoulSpawner : MonoBehaviour {
 
-    private List<PoorSoulController> souls = new List<PoorSoulController>();
+    public PreacherController player;
     // Do not spawn poor souls more often than these number of seconds
     public float minSpawnTime = 20;
 
     // Do not spawn more than this number of souls
     public int maxPoorSouls = 50;
+
+    private int numSouls = 0;
 
     public float spanwProbPerFrame = 0.01f;
 
@@ -25,6 +27,11 @@ public class PoorSoulSpawner : MonoBehaviour {
 	
 	}
 
+    public void OneLess()
+    {
+        numSouls--;
+    }
+
     private void Spawn()
     {
         Debug.Log("Spawn!");
@@ -34,16 +41,16 @@ public class PoorSoulSpawner : MonoBehaviour {
             Random.Range(spawnBounds.min.z, spawnBounds.max.z));
 
         PoorSoulController psc = go.GetComponentInChildren<PoorSoulController>();
-        if (psc != null)
-        {
-            souls.Add(psc);
-        }
+        psc.player = player;
+        psc.spawner = this;
+
+        numSouls++;
     }
 
     private bool ShouldSpawn()
     {
         lastSpawnSince += Time.deltaTime;
-        bool spawn = souls.Count < maxPoorSouls && (lastSpawnSince > minSpawnTime) && Random.value < spanwProbPerFrame;
+        bool spawn = numSouls < maxPoorSouls && (lastSpawnSince > minSpawnTime) && Random.value < spanwProbPerFrame;
         if (spawn)
         {
             lastSpawnSince = 0;
