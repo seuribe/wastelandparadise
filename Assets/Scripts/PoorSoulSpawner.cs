@@ -13,7 +13,7 @@ public class PoorSoulSpawner : MonoBehaviour {
 
     private int numSouls = 0;
 
-    public float spanwProbPerFrame = 0.01f;
+    public float spawnProbPerFrame = 0.01f;
 
     // prefab for spawning new poor souls
     public GameObject poorSoulPrefab;
@@ -65,7 +65,7 @@ public class PoorSoulSpawner : MonoBehaviour {
             return false;
         }
         lastSpawnSince += Time.deltaTime;
-        bool spawn = numSouls < maxPoorSouls && (lastSpawnSince > minSpawnTime) && Random.value < spanwProbPerFrame;
+        bool spawn = numSouls < maxPoorSouls && (lastSpawnSince > minSpawnTime) && Random.value < spawnProbPerFrame;
         if (spawn)
         {
             lastSpawnSince = 0;

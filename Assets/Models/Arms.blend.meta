@@ -107,6 +107,10 @@ ModelImporter:
     7400000: Default Take
     7400002: Idle
     7400004: no-no
+    7400006: absolve
+    7400008: confession
+    7400010: cross
+    7400012: slap
     9500000: //RootNode
     13700000: Circle_001
   materials:
@@ -382,6 +386,502 @@ ModelImporter:
       takeName: no-no
       firstFrame: -1
       lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Shoulder_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004/Bone_005
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008/Bone_009/Bone_010
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012/Bone_013
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012/Bone_013/Bone_014
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016/Bone_017/Bone_018
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020/Bone_021
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: Armature/Shoulder_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone/Bone_001
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023/Bone_024
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023/Bone_024/Bone_025
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027/Bone_028
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027/Bone_028/Bone_029
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031/Bone_032
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031/Bone_032/Bone_033
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035/Bone_036
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035/Bone_036/Bone_037
+        weight: 1
+      - path: Circle_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: absolve
+      takeName: absolve
+      firstFrame: -1
+      lastFrame: 133
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Shoulder_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004/Bone_005
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008/Bone_009/Bone_010
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012/Bone_013
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012/Bone_013/Bone_014
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016/Bone_017/Bone_018
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020/Bone_021
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: Armature/Shoulder_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone/Bone_001
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023/Bone_024
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023/Bone_024/Bone_025
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027/Bone_028
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027/Bone_028/Bone_029
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031/Bone_032
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031/Bone_032/Bone_033
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035/Bone_036
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035/Bone_036/Bone_037
+        weight: 1
+      - path: Circle_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: confession
+      takeName: confession
+      firstFrame: -1
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Shoulder_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004/Bone_005
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008/Bone_009/Bone_010
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012/Bone_013
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012/Bone_013/Bone_014
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016/Bone_017/Bone_018
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020/Bone_021
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: Armature/Shoulder_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone/Bone_001
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023/Bone_024
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023/Bone_024/Bone_025
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027/Bone_028
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027/Bone_028/Bone_029
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031/Bone_032
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031/Bone_032/Bone_033
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035/Bone_036
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035/Bone_036/Bone_037
+        weight: 1
+      - path: Circle_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: cross
+      takeName: cross
+      firstFrame: -1
+      lastFrame: 83
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Shoulder_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004/Bone_005
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_007/Bone_008/Bone_009/Bone_010
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012/Bone_013
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_011/Bone_012/Bone_013/Bone_014
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_015/Bone_016/Bone_017/Bone_018
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020/Bone_021
+        weight: 1
+      - path: Armature/Shoulder_L/arm_L/Forearm_L/Hand_L/Bone_019/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: Armature/Shoulder_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone/Bone_001
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023/Bone_024
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_003/Bone_023/Bone_024/Bone_025
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027/Bone_028
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_026/Bone_027/Bone_028/Bone_029
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031/Bone_032
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_030/Bone_031/Bone_032/Bone_033
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035/Bone_036
+        weight: 1
+      - path: Armature/Shoulder_R/arm_R/Forearm_R/Hand_R/Bone_034/Bone_035/Bone_036/Bone_037
+        weight: 1
+      - path: Circle_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slap
+      takeName: slap
+      firstFrame: -1
+      lastFrame: 26
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
