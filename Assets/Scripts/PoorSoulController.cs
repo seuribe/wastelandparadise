@@ -18,6 +18,7 @@ public class PoorSoulController : MonoBehaviour {
     public float reprimendReaction = -1;
     public float exorciseReaction = 0.5f;
     public float holyBathReaction = -0.5f;
+    public float convertionEffectTime = 1f;
 
     public float followSpeed = 2;
     public float chaseSpeed = 5;
@@ -32,6 +33,9 @@ public class PoorSoulController : MonoBehaviour {
 
     public PreacherController player;
     public PoorSoulSpawner spawner;
+
+    private ConvertionActions currentAction = ConvertionActions.None;
+    private float convertionTimeLeft = 0;
 
     private Vector3 absolveScale = new Vector3(1.25f, 1.25f, 1.25f);
 
@@ -97,11 +101,8 @@ public class PoorSoulController : MonoBehaviour {
         {
             return;
         }
-        float reaction = 0;
-        if (reactions.TryGetValue(action, out reaction))
-        {
-            belief += reaction * player.conversionPower;
-        }
+        currentAction = action;
+        convertionTimeLeft = convertionEffectTime;
     }
 
     public void Confess()
@@ -168,6 +169,29 @@ public class PoorSoulController : MonoBehaviour {
             ascensionSpeed.y = Mathf.Clamp(ascensionSpeed.y + ascensionAccel * Time.deltaTime, 0, maxAscensionSpeed);
             transform.localPosition += ascensionSpeed * direction * Time.deltaTime;
         }
+
+        if (currentAction != ConvertionActions.None)
+        {
+            float reaction = 0;
+            if (reactions.TryGetValue(currentAction, out reaction))
+            {
+                belief += reaction * player.conversionPower * Time.deltaTime;
+            }
+            convertionTimeLeft -= Time.deltaTime;
+            if (convertionTimeLeft <= 0)
+            {
+                convertionTimeLeft = 0;
+                currentAction = ConvertionActions.None;
+            }
+            if (Vector3.Distance(transform.position, player.transform.position) > player.convertionRadius)
+            {
+                convertionTimeLeft = 0;
+                currentAction = ConvertionActions.None;
+            }
+
+        }
+
+
         LookAtPlayer();
         if (absolved)            // DO nothing, just await for death
         {
@@ -186,8 +210,11 @@ public class PoorSoulController : MonoBehaviour {
         }
         else
         {
-            // Chase the player
-            ChasePlayer();
+            // Chase the player if it's not being converted
+            if (currentAction == ConvertionActions.None)
+            {
+                ChasePlayer();
+            }
         }
         float beliefRatio = Mathf.Clamp(belief, 0, beliefForConversion) / beliefForConversion;
         halo.GetComponentInChildren<MeshRenderer>().material.color = Color.Lerp(Color.red, Color.yellow, beliefRatio);

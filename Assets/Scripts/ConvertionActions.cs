@@ -1,5 +1,5 @@
 ﻿
 public enum ConvertionActions
 {
-    Preach, Reprimend, Exorcise, HolyBath
+    None, Preach, Reprimend, Exorcise, HolyBath
 }

@@ -37,76 +37,62 @@ public class PreacherController : MonoBehaviour {
 	
 	}
 
-    private PoorSoulController availableSoul;
-
-    void OnTriggerEnter(Collider collider)
-    {
-        GameObject go = collider.gameObject;
-        PoorSoulController soul = go.GetComponentInChildren<PoorSoulController>();
-        if (soul != null)
-        {
-            availableSoul = soul;
-            Debug.Log("Poor soul available!");
-        }
-    }
-
-    void OnTriggerExit(Collider collider)
-    {
-        if (availableSoul != null)
-        {
-            Debug.Log("Poor soul lost");
-        }
-        availableSoul = null;
-    }
-
     private PoorSoulController GetReachableSoul()
     {
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(GetCollisionRay(), out hit, convertionRadius))
+        {
+            Debug.Log("Reachable soul present: " + hit.collider);
+            return hit.collider.gameObject.GetComponentInChildren<PoorSoulController>();
+        }
         return null;
     }
 
     private void Kill()
     {
-        if (!IsPoorSoulReachable())
+        Debug.Log("Kill");
+        var soul = GetReachableSoul();
+        if (soul == null)
         {
+            Debug.Log("No reachable soul");
             return;
         }
 
-        Debug.Log("Kill");
-        if (availableSoul.Absolved)
+        if (soul.Absolved)
         {
+            Debug.Log("Kill: soul saved");
             gameController.SoulSaved();
             conversionPower = Mathf.Clamp(conversionPower + savedSoulPowerGain, minConversionPower, maxConversionPower);
         }
         else
         {
+            Debug.Log("Kill: soul lost");
             gameController.SoulLost();
             conversionPower = Mathf.Clamp(conversionPower + lostSoulPowerGain, minConversionPower, maxConversionPower);
         }
-        availableSoul.Die();
+        soul.Die();
     }
 
     private void Confess()
     {
-        if (!IsPoorSoulReachable())
+        Debug.Log("Confess");
+        var soul = GetReachableSoul();
+        if (soul != null)
         {
-            return;
+            Debug.Log("Soul found");
+            soul.Confess();
         }
-
-        availableSoul.Confess();
     }
 
     private void Absolve()
     {
-        if (!IsPoorSoulReachable())
+        Debug.Log("Absolve");
+        var soul = GetReachableSoul();
+        if (soul != null)
         {
-            return;
+            Debug.Log("Soul found");
+            soul.Absolve();
         }
-        availableSoul.Absolve();
-    }
-
-    private bool IsPoorSoulReachable()
-    {
-        return availableSoul != null;
     }
 
     private void Convert(ConvertionActions action)
@@ -164,9 +150,19 @@ public class PreacherController : MonoBehaviour {
         conversionPower = Mathf.Clamp(conversionPower + powerRecovery * Time.deltaTime, 0.25f, 1f);
     }
 
+    private Ray GetCollisionRay()
+    {
+        return new Ray(transform.position + new Vector3(0, -0.5f, 0), transform.forward * 2);
+    }
+
     public void Harm()
     {
         conversionPower = Mathf.Clamp(conversionPower + powerHarmed * Time.deltaTime, 0.25f, 1f);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(GetCollisionRay());
     }
 
     void OnGUI()
