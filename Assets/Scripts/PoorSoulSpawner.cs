@@ -27,6 +27,17 @@ public class PoorSoulSpawner : MonoBehaviour {
 	
 	}
 
+    private bool paused = true;
+    public void Pause()
+    {
+        paused = true;
+    }
+
+    public void Resume()
+    {
+        paused = false;
+    }
+
     public void OneLess()
     {
         numSouls--;
@@ -49,6 +60,10 @@ public class PoorSoulSpawner : MonoBehaviour {
 
     private bool ShouldSpawn()
     {
+        if (paused)
+        {
+            return false;
+        }
         lastSpawnSince += Time.deltaTime;
         bool spawn = numSouls < maxPoorSouls && (lastSpawnSince > minSpawnTime) && Random.value < spanwProbPerFrame;
         if (spawn)

@@ -129,9 +129,9 @@ public class PoorSoulController : MonoBehaviour {
 
     void LookAtPlayer()
     {
-        Debug.Log("Look At Player");
         transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.LookRotation(player.transform.position - transform.position), 0.1f);
     }
+
     void FollowPlayer()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);

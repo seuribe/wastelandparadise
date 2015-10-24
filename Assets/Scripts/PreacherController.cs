@@ -12,8 +12,9 @@ public class PreacherController : MonoBehaviour {
     public KeyCode preachKey = KeyCode.P;
     public KeyCode holyBathKey = KeyCode.H;
 
-    public Collider actionArea;
     public Animator handsAnimator;
+
+    public GameController gameController;
 
     public float conversionPower = 1f;
 
@@ -30,9 +31,6 @@ public class PreacherController : MonoBehaviour {
     public float minConversionPower = 0.25f;
     public float powerRecovery = 0.1f;
     public float powerHarmed = -0.1f;
-
-    private int killedSouls = 0;
-    private int savedSouls = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -76,12 +74,12 @@ public class PreacherController : MonoBehaviour {
         Debug.Log("Kill");
         if (availableSoul.Absolved)
         {
-            savedSouls++;
+            gameController.SoulSaved();
             conversionPower = Mathf.Clamp(conversionPower + savedSoulPowerGain, minConversionPower, maxConversionPower);
         }
         else
         {
-            killedSouls++;
+            gameController.SoulLost();
             conversionPower = Mathf.Clamp(conversionPower + lostSoulPowerGain, minConversionPower, maxConversionPower);
         }
         availableSoul.Die();
@@ -126,6 +124,10 @@ public class PreacherController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if (!gameController.IsPlaying)
+        {
+            return;
+        }
         if (Input.GetKeyDown(killKey))
         {
             Kill();
@@ -164,14 +166,14 @@ public class PreacherController : MonoBehaviour {
 
     public void Harm()
     {
-        Debug.Log("Harm!");
         conversionPower = Mathf.Clamp(conversionPower + powerHarmed * Time.deltaTime, 0.25f, 1f);
     }
 
     void OnGUI()
     {
-        GUI.TextField(new Rect(10, 10, 150, 20), "Sent to heaven: " + savedSouls);
-        GUI.TextField(new Rect(10, 40, 150, 20), "Sent to hell: " + killedSouls);
-        GUI.TextField(new Rect(10, 70, 150, 20), "Conversion Power: " + conversionPower);
+        if (gameController.IsPlaying)
+        {
+            GUI.TextField(new Rect(10, 70, 150, 20), "Conversion Power: " + conversionPower);
+        }
     }
 }
