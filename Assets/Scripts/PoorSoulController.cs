@@ -6,8 +6,14 @@ public class PoorSoulController : MonoBehaviour {
 
     private float belief = 0;
 
+    public float ascensionAccel = 0.5f;
+    public float maxAscensionSpeed = 5;
+    public float heavenHeight = 100;
+    private Vector3 ascensionSpeed = new Vector3();
+
     public float beliefForConversion = 10;
     public float averagedReaction = 0;
+    public float beliefLostPerSecond = 0.1f;
 
     public float preachReaction = 1;
     public float reprimendReaction = -1;
@@ -16,6 +22,9 @@ public class PoorSoulController : MonoBehaviour {
 
     private bool confessed;
     private bool absolved;
+    private bool dead;
+
+    private Vector3 absolveScale = new Vector3(1.25f, 1.25f, 1.25f);
 
     public GameObject halo;
 
@@ -24,8 +33,43 @@ public class PoorSoulController : MonoBehaviour {
     public bool IsConverted
     {
         get {
-            return belief < beliefForConversion;
+            return belief >= beliefForConversion;
         }
+    }
+
+    public bool Confessed
+    {
+        get
+        {
+            return confessed;
+        }
+    }
+
+    public bool Absolved
+    {
+        get
+        {
+            return absolved;
+        }
+    }
+
+    public bool Dead
+    {
+        get
+        {
+            return dead;
+        }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Die");
+        Rigidbody rb = GetComponentInChildren<Rigidbody>();
+        rb.isKinematic = true;
+        rb.useGravity = false;
+        dead = true;
+        // slowly go into the ground and then dissappear
+        // start a ghost-soul floating towards heaven
     }
 
     // Use this for initialization
@@ -39,7 +83,7 @@ public class PoorSoulController : MonoBehaviour {
 
     public void Convert(ConvertionActions action)
     {
-        if (absolved)
+        if (absolved || dead)
         {
             return;
         }
@@ -52,33 +96,53 @@ public class PoorSoulController : MonoBehaviour {
 
     public void Confess()
     {
-        if (!IsConverted)
+        Debug.Log("Confess");
+        if (!IsConverted || dead)
         {
             return;
         }
         confessed = true;
+        halo.transform.localScale.Scale(absolveScale);
     }
 
     public void Absolve()
     {
-        if (!confessed)
+        Debug.Log("Absolve");
+        if (!confessed || dead)
         {
             return;
         }
         absolved = true;
+        halo.transform.localScale.Scale(absolveScale);
     }
 
 	// Update is called once per frame
 	void Update () {
+        if (dead)
+        {
+            float direction = absolved ? 1 : -1;
+            if (transform.position.y > heavenHeight || transform.position.y < -heavenHeight)
+            {
+                Debug.Log("Destroy dead body");
+                Destroy(gameObject);
+                return;
+            }
+
+            ascensionSpeed.y = Mathf.Clamp(ascensionSpeed.y + ascensionAccel * Time.deltaTime, 0, maxAscensionSpeed);
+            transform.localPosition += ascensionSpeed * direction * Time.deltaTime;
+        }
         if (absolved)
         {
+            return;
             // DO nothing, just await for death
         }
-        else if (confessed)
+        if (confessed)
         {
             // Follow player waiting for absolution
+            return;
         }
-        else if (IsConverted)
+        belief = Mathf.Clamp(belief, 0, belief - beliefLostPerSecond * Time.deltaTime);
+        if (IsConverted)
         {
             // 1. if player is around, follow him peacefully
             // 2. if not, stay in place enjoying your inner peace
@@ -90,7 +154,7 @@ public class PoorSoulController : MonoBehaviour {
         }
         float beliefRatio = Mathf.Clamp(belief, 0, beliefForConversion) / beliefForConversion;
         halo.GetComponentInChildren<MeshRenderer>().material.color = Color.Lerp(Color.red, Color.yellow, beliefRatio);
-        halo.transform.localPosition = Vector3.Slerp(halo.transform.localPosition, new Vector3(0, 0.5f + (beliefRatio * 0.25f), 0), 0.5f);
+        halo.transform.localPosition = Vector3.Slerp(halo.transform.localPosition, new Vector3(0, 0.5f + (beliefRatio * 0.5f), 0), 0.1f);
     }
 
 }
