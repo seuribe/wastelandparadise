@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 710a06a0969b24e1e86170220094a382
-timeCreated: 1445696824
+guid: dcade87fa4e688745a20ea96b2209094
+timeCreated: 1445698302
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -47,14 +47,13 @@ ModelImporter:
     100078: Bone_035
     100080: Bone_036
     100082: Bone_037
-    100084: Circle
-    100086: Circle_001
-    100088: Forearm_L
-    100090: Forearm_R
-    100092: Hand_L
-    100094: Hand_R
-    100096: Shoulder_L
-    100098: Shoulder_R
+    100084: Circle_001
+    100086: Forearm_L
+    100088: Forearm_R
+    100090: Hand_L
+    100092: Hand_R
+    100094: Shoulder_L
+    100096: Shoulder_R
     400000: arm_L
     400002: arm_R
     400004: Armature
@@ -97,18 +96,14 @@ ModelImporter:
     400078: Bone_035
     400080: Bone_036
     400082: Bone_037
-    400084: Circle
-    400086: Circle_001
-    400088: Forearm_L
-    400090: Forearm_R
-    400092: Hand_L
-    400094: Hand_R
-    400096: Shoulder_L
-    400098: Shoulder_R
-    2300000: Circle
-    3300000: Circle
+    400084: Circle_001
+    400086: Forearm_L
+    400088: Forearm_R
+    400090: Hand_L
+    400092: Hand_R
+    400094: Shoulder_L
+    400096: Shoulder_R
     4300000: Circle_001
-    4300002: Circle
     7400000: Default Take
     7400002: Idle
     7400004: no-no

@@ -13,6 +13,7 @@ public class PreacherController : MonoBehaviour {
     public KeyCode holyBathKey = KeyCode.H;
 
     public Collider actionArea;
+    public Animator handsAnimator;
 
 	// Use this for initialization
 	void Start () {
@@ -61,6 +62,7 @@ public class PreacherController : MonoBehaviour {
     private void Convert(ConvertionActions action)
     {
         availableSoul.Convert(action);
+        handsAnimator.SetTrigger("no-no");
     }
 
 	// Update is called once per frame
