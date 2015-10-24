@@ -4,10 +4,13 @@ using System.Collections;
 public class PreacherController : MonoBehaviour {
 
     public KeyCode killKey = KeyCode.K;
-    public KeyCode preachKey = KeyCode.P;
-    public KeyCode reprimendKey = KeyCode.R;
-    public KeyCode confessionKey = KeyCode.C;
     public KeyCode absolveKey = KeyCode.V;
+    public KeyCode confessionKey = KeyCode.C;
+
+    public KeyCode reprimendKey = KeyCode.R;
+    public KeyCode exorciseKey = KeyCode.E;
+    public KeyCode preachKey = KeyCode.P;
+    public KeyCode holyBathKey = KeyCode.H;
 
     public Collider actionArea;
 
@@ -42,14 +45,6 @@ public class PreacherController : MonoBehaviour {
     {
     }
 
-    private void Preach()
-    {
-    }
-
-    private void Reprimend()
-    {
-    }
-
     private void Confess()
     {
     }
@@ -63,19 +58,36 @@ public class PreacherController : MonoBehaviour {
         return availableSoul != null;
     }
 
+    private void Convert(ConvertionActions action)
+    {
+        availableSoul.Convert(action);
+    }
+
 	// Update is called once per frame
 	void Update () {
+        if (!IsPoorSoulReachable())
+        {   // no soul available
+            return;
+        }
         if (Input.GetKeyDown(killKey))
         {
             Kill();
         }
         else if (Input.GetKeyDown(preachKey))
         {
-            Preach();
+            Convert(ConvertionActions.Preach);
         }
         else if (Input.GetKeyDown(reprimendKey))
         {
-            Reprimend();
+            Convert(ConvertionActions.Reprimend);
+        }
+        else if (Input.GetKeyDown(exorciseKey))
+        {
+            Convert(ConvertionActions.Exorcise);
+        }
+        else if (Input.GetKeyDown(holyBathKey))
+        {
+            Convert(ConvertionActions.HolyBath);
         }
         else if (Input.GetKeyDown(confessionKey))
         {
